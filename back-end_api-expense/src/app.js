@@ -9,7 +9,7 @@ const errorMiddleware = require('./middlewares/errorMiddleware');
 
 const app = express();
 
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3001' }));
 app.use(express.json());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
