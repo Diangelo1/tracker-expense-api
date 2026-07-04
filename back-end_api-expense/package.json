@@ -12,7 +12,8 @@
     "seed": "sequelize-cli db:seed:all",
     "seed:undo": "sequelize-cli db:seed:undo:all",
     "db:reset": "npm run migrate:undo:all && npm run migrate && npm run seed",
-    "db:create": "sequelize-cli db:create"
+    "db:create": "sequelize-cli db:create",
+    "test": "cross-env TEST=true node --experimental-vm-modules node_modules/jest/bin/jest.js --coverage"
   },
   "keywords": [
     "express",
@@ -25,9 +26,11 @@
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
+    "cross-env": "^10.1.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-validator": "^7.1.0",
+    "jest": "^30.4.2",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.10.0",
     "sequelize": "^6.37.8",

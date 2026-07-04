@@ -14,7 +14,7 @@ export function AuthProvider({ children }) {
     setLoading(true);
     setError(null);
     try {
-      const { data } = await authService.login({ email, password });
+      const { data } = await authService.login({ email, senha: password });
       const token = data.token || data.access_token || data.accessToken;
       const userData = data.user || { email };
       localStorage.setItem('token', token);
@@ -34,7 +34,7 @@ export function AuthProvider({ children }) {
     setLoading(true);
     setError(null);
     try {
-      await authService.register({ name, email, password });
+      await authService.register({ nome: name, email, senha: password });
       return { success: true };
     } catch (err) {
       const msg = err.response?.data?.message || 'Erro ao criar conta.';
